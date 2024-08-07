@@ -19,12 +19,12 @@ pipeline {
         sh 'mvn package'
       }
     }
-    stage('codequality'){
+    stage('4-codequality'){
         steps{
        sh "mvn clean verify sonar:sonar \
   -Dsonar.projectKey=team10 \
-  -Dsonar.host.url=http://3.139.233.127:9000 \
-  -Dsonar.login=sqp_028b0b40c2a0428b28a6fda2e21d82ec613b4c32"
+  -Dsonar.host.url=http://18.220.33.167:9000 \
+  -Dsonar.login=sqp_2768810549e4e13a8da045f22af0a44837852f3f"
       }
     }
     stage('5-deploy-to-tomcat') {
