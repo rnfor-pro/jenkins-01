@@ -6,7 +6,7 @@ pipeline {
   stages{
     stage('1-cloning project repo'){
       steps{
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/rnfor-pro/jenkins-01.git']])
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/mpndevops10/jenkins-01.git']])
       }
     }
     stage('2-cleanws'){
@@ -32,7 +32,7 @@ pipeline {
         withEnv(['WAR_FILE_PATH=~/workspace/maven-build/MavenEnterpriseApp-web/target/MavenEnterpriseApplication.war']) {
             sshagent(['tomcat']) {
                 sh """
-                scp -o StrictHostKeyChecking=no ${WAR_FILE_PATH} ubuntu@3.21.102.135:/opt/tomcat/apache-tomcat-9.0.88/webapps
+                scp -o StrictHostKeyChecking=no ${WAR_FILE_PATH} ubuntu@3.21.102.135:/opt/tomcat/apache-tomcat-9.0.93/webapps
                 """
             }
         }
